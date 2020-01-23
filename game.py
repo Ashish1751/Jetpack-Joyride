@@ -108,8 +108,8 @@ def movemando():
         MANDO.disappear(ARR)
         E.bossdisappear(ARR)
         if(MANDO._Man__yco>2):
-            if(MANDO.get_a() > 389 and e.get_y() > 2):
-                e.set_y(-2)
+            if(MANDO.get_a() > 389 and E.get_y() > 2):
+                E.set_y(-2)
             MANDO.set_y(-2)
             MANDO.coincheck(ARR, 2)
             MANDO.collisioncheck(ARR, 2, MANDO.get_a())
@@ -184,16 +184,27 @@ while True:
         if ARR[x][457] == Fore.LIGHTYELLOW_EX + ")" + Style.RESET_ALL:
             ARR[x][457] = " "
 
-    if MANDO.get_y() + 4 != ground:
+    if MANDO.get_a() > 389:
         MANDO.disappear(ARR)
-        if MANDO.get_y()+ 4 + MANDO._gr < 27:
-            MANDO.set_y(MANDO._gr)
-        else:
-            MANDO.set_y(24-MANDO.get_y())
+        E.bossdisappear(ARR)
+        if MANDO.get_y() + 4 < 28:
+            if(MANDO.get_a() > 389 and E.get_y() + 12 < 27):
+                E.set_y(1)
+            MANDO.set_y(1)
+            MANDO.collisioncheck(ARR, 3, MANDO.get_a())
         MANDO.appear(ARR)
-        MANDO.coincheck(ARR,3)
-        MANDO.collisioncheck(ARR,3,MANDO.get_a())
-    MANDO._gr += 1
+        E.bossappear(ARR)
+    else:
+        if MANDO.get_y() + 4 != ground:
+            MANDO.disappear(ARR)
+            if MANDO.get_y()+ 4 + MANDO._gr < 27:
+                MANDO.set_y(MANDO._gr)
+            else:
+                MANDO.set_y(24-MANDO.get_y())
+            MANDO.appear(ARR)
+            MANDO.coincheck(ARR,3)
+            MANDO.collisioncheck(ARR,3,MANDO.get_a())
+        MANDO._gr += 1
 
     MANDO.movebullets(ARR)
     if(MANDO.get_a() > 389 and MANDO.get_a()%8 == 0):
