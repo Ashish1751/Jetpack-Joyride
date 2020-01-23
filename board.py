@@ -18,16 +18,16 @@ class Board:
             for j in range(cols):
                 grid[rows-i-1][j] = self.__ground
 
-    def print_board(self, grid, rows, pos): # print the board
+    def print_board(self, grid, rows, pos):
         '''Function to print board'''
         if pos < 389:
             for i in range(rows):
-                for j in range(pos, pos+110): # 110 columns at a time
+                for j in range(pos, pos+110):
                     print(grid[i][j], end='')
                 print()
 
         elif pos >= 389:
             for i in range(rows):
-                for j in range(389, 389+110): # 110 columns at a time
+                for j in range(389, 389+110):
                     print(grid[i][j], end='')
                 print()

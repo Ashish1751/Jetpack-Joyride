@@ -11,7 +11,7 @@ class ObstacleH:
         self.__grid[x_val][y_val] = "o"
         self.__grid[x_val][y_val + 10] = "o"
         for i in range(y_val + 1, y_val + 10):
-            self.__grid[x_val][i] = "–"
+            self.__grid[x_val][i] = "-"
 
 class ObstacleV(ObstacleH):
     ''''Class for vertical obstacles'''
@@ -45,7 +45,6 @@ class Magnet(ObstacleH):
     def create_obstacle(self, x_val, y_val):
         '''Method to create magnet'''
         self._ObstacleH__grid[16][y_val] = "🧲"
-        # grid[2][y_val] = "| |"
 
 class Coins:
     ''''Class for coins'''

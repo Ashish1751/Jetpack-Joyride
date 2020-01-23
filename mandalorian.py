@@ -21,6 +21,7 @@ class Mando(Man):
         self._a = 0
         self._g = 0
         self._score = 0
+        self._gr = 0
 
     def get_x(self):
         '''Returns x coordinate'''
@@ -169,7 +170,7 @@ class Mando(Man):
                         grid[self.__bx[x]][self.__by[x]+2] = ")"
                 self.__by[x] += 2
 
-    def collisioncheck(self, grid, choice, a): #Need to change if p is implemented
+    def collisioncheck(self, grid, choice, a):
         '''Checks for collision'''
         if choice == 0:
             if (grid[self._Man__yco][self._Man__xco + 3] in ["o", "-", "\\", "|"] or grid[self._Man__yco+1][self._Man__xco + 3] in ["o", "-", "\\", "|"] or grid[self._Man__yco+2][self._Man__xco + 3] in ["o", "-", "\\", "|"] or grid[self._Man__yco+3][self._Man__xco + 3] in ["o", "-", "\\", "|"]):
@@ -206,13 +207,13 @@ class Mando(Man):
                 if self.get_shield() == 0:
                     self.set_life(self.get_life()-1)
                     self.disappear(grid)
-                    if self._Man__xco + 12 < a + 110:
-                        self._Man__xco = self._Man__xco + 10
+                    if self._Man__xco + 13 < a + 110:
+                        self._Man__xco = self._Man__xco + 11
                     self.appear(grid)
                 else:
                     self.__shape = [["@", "@", "@"], ["@", "@", "@"], [" ", "O", " "], ["^", "^", "^"]]
 
-    def coincheck(self, grid, choice): #Need to change if p is implemented
+    def coincheck(self, grid, choice):
         '''Checks for coins'''
         coin = Fore.LIGHTCYAN_EX + "$" + Style.RESET_ALL
         if choice == 0:

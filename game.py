@@ -13,8 +13,7 @@ from getch import _getChUnix as getChar
 
 ROWS, COLS = (30, 500)
 ARR = [[" " for i in range(COLS)] for j in range(ROWS)]
-# coin = Fore.LIGHTCYAN_EX + "$" + Style.RESET_ALL
-# ground = Fore.YELLOW + "X" + Style.RESET_ALL
+ground = Fore.YELLOW + "X" + Style.RESET_ALL
 
 B = Board()
 B.create_sky(ARR, COLS)
@@ -82,13 +81,13 @@ def movemando():
     elif char == 'd' and MANDO.get_x() + 3 < 458:
         MANDO.disappear(ARR)
         if(MANDO.get_x() + 3 < MANDO.get_a() + 110 and MANDO.get_x() + 3 < 458):
-            MANDO.set_x(1) #= MANDO._Man__xco + 1
+            MANDO.set_x(1)
             MANDO.coincheck(ARR, 0)
         if(MANDO.get_x() > O5Y1 -1 and MANDO.get_x() < O5Y1 + 30 and MANDO.get_x() + 4 < MANDO.get_a() + 110):
-            MANDO.set_x(2) #= MANDO._Man__xco + 2
+            MANDO.set_x(2) 
             MANDO.coincheck(ARR, 0)
         if(MANDO.get_x() > O5Y2 -1 and MANDO.get_x() < O5Y2 + 30 and MANDO.get_x() + 4 < MANDO.get_a() + 110):
-            MANDO.set_x(2) #= MANDO._Man__xco + 2
+            MANDO.set_x(2)
             MANDO.coincheck(ARR, 0)
         MANDO.appear(ARR)
         MANDO.collisioncheck(ARR, 0, MANDO.get_a())
@@ -96,66 +95,27 @@ def movemando():
     elif char == 'a':
         MANDO.disappear(ARR)
         if MANDO.get_x() > MANDO.get_a() +1:
-            MANDO.set_x(-2) #= MANDO._Man__xco - 2
+            MANDO.set_x(-2)
             MANDO.coincheck(ARR, 1)
         if(MANDO.get_a() > 389 and MANDO.get_x() > 390):
-            MANDO.set_x(-2) #= MANDO._Man__xco - 2
+            MANDO.set_x(-2)
             MANDO.coincheck(ARR, 1)
         MANDO.appear(ARR)
         MANDO.collisioncheck(ARR, 1, MANDO.get_a())
 
-    # elif char == "w":
-    #     MANDO.disappear(ARR)
-    #     E.bossdisappear(ARR)
-    #     if(MANDO._Man__yco>2):
-    #         if(MANDO.get_a() > 389 and e._Man__yco > 2):
-    #             e._Man__yco = e._Man__yco - 2
-    #         MANDO._Man__yco = MANDO._Man__yco - 2
-    #         MANDO.coincheck(ARR, 2)
-    #         MANDO.collisioncheck(ARR, 2, MANDO.get_a())
-    #     MANDO.appear(ARR)
-    #     E.bossappear(ARR)
-
     elif char == "w":
-        if MANDO.get_a() > 389:
-            MANDO.disappear(ARR)
-            E.bossdisappear(ARR)
-            if MANDO.get_y() > 2:
-                if(MANDO.get_a() > 389 and E.get_y() > 2):
-                    E.set_y(-2) #= e._Man__yco - 2
-                MANDO.set_y(-2) #= MANDO._Man__yco - 2
-                MANDO.coincheck(ARR, 2)
-                MANDO.collisioncheck(ARR, 2, MANDO.get_a())
-            MANDO.appear(ARR)
-            E.bossappear(ARR)
-        else:
-            if(MANDO.get_y() > 16 and MANDO.get_y() < 25):
-                MANDO.disappear(ARR)
-                MANDO.set_y(-2) #= MANDO._Man__yco - 2
-                MANDO.coincheck(ARR, 2)
-                MANDO.collisioncheck(ARR, 2, MANDO.get_a())
-                MANDO.appear(ARR)
-            elif(MANDO.get_y() > 7 and MANDO.get_y() < 17):
-                # MANDO.disappear(ARR)
-                l_val = MANDO.get_life()
-                for i in range(2):
-                    MANDO.disappear(ARR)
-                    MANDO.set_y(-2) #= MANDO._Man__yco - 2
-                    MANDO.coincheck(ARR, 2)
-                    MANDO.collisioncheck(ARR, 2, MANDO.get_a())
-                MANDO.appear(ARR)
-                if l_val != MANDO.get_life():
-                    MANDO.set_life(l_val - 1)
-            elif(MANDO.get_y() > 4 and MANDO.get_y() < 8):
-                l_val = MANDO.get_life()
-                for i in range(3):
-                    MANDO.disappear(ARR)
-                    MANDO.set_y(-2) #= MANDO._Man__yco - 2
-                    MANDO.coincheck(ARR, 2)
-                    MANDO.collisioncheck(ARR, 2, MANDO.get_a())
-                    MANDO.appear(ARR)
-                if l_val != MANDO.get_life():
-                    MANDO.set_life(l_val - 1)
+        MANDO._gr = 0
+        MANDO.disappear(ARR)
+        E.bossdisappear(ARR)
+        if(MANDO._Man__yco>2):
+            if(MANDO.get_a() > 389 and e.get_y() > 2):
+                e.set_y(-2)
+            MANDO.set_y(-2)
+            MANDO.coincheck(ARR, 2)
+            MANDO.collisioncheck(ARR, 2, MANDO.get_a())
+        MANDO.appear(ARR)
+        E.bossappear(ARR)
+        MANDO._gr = 0
 
     elif char == "s" and MANDO.get_g() == 0:
         MANDO.set_g(1)
@@ -164,7 +124,7 @@ def movemando():
         if(MANDO.get_a() < 389 and MANDO.get_x() + 50 < MANDO.get_a() + 110):
             MANDO.disappear(ARR)
             MANDO.set_a(10)
-            MANDO.set_x(10) #+= 10
+            MANDO.set_x(10)
             MANDO.appear(ARR)
         MANDO.set_life(l_val)
 
@@ -174,7 +134,6 @@ def movemando():
 MANDO = Mando(0, 24)
 MANDO.appear(ARR)
 MANDO.set_a(0)
-# p=1
 START = round(time.time())
 
 while True:
@@ -184,6 +143,7 @@ while True:
     print("SCORE:", MANDO.get_score(), end='\n')
     print("ENEMY LIVES:", E.get_life(), end='\t \t')
     print("TIME REMAINING:", T)
+    print(MANDO.get_y())
     if T == 0:
         print("Time Up")
         quit()
@@ -200,7 +160,7 @@ while True:
         ARR[16][O5Y1] = ARR[16][O5Y2] = "🧲"
 
     if MANDO.get_a() < 389:
-        MANDO.set_x(1) #= MANDO._Man__xco + 1
+        MANDO.set_x(1)
         MANDO.coincheck(ARR, 0)
     MANDO.appear(ARR)
 
@@ -224,67 +184,16 @@ while True:
         if ARR[x][457] == Fore.LIGHTYELLOW_EX + ")" + Style.RESET_ALL:
             ARR[x][457] = " "
 
-    #     if (MANDO._Man__yco+p+3<27 and ARR[MANDO._Man__yco+p+3][MANDO._Man__xco+2] != ground and ARR[MANDO._Man__yco+3+p][MANDO._Man__xco+1] != ground and ARR[MANDO._Man__yco+3+p][MANDO._Man__xco] != ground):
-    #         MANDO.disappear(ARR)
-    #         E.bossdisappear(ARR)
-    #         MANDO.collisioncheck(ARR, 3, MANDO.get_a()) # Need to change if p is implemented
-    #         if(e._Man__yco+12<27):
-    #             e._Man__yco += 1
-    #         MANDO._Man__yco = MANDO._Man__yco + p
-    #         MANDO.coincheck(ARR, 3) # Need to change if p is implemented
-    #         MANDO.appear(ARR)
-    #         E.bossappear(ARR)
-    #         # p=p+1
-    #     else:
-    #         p=1
-    #         if (ARR[MANDO._Man__yco+p+3][MANDO._Man__xco+2] in [" ", coin] and ARR[MANDO._Man__yco+3+p][MANDO._Man__xco+1] in [" ", coin] and ARR[MANDO._Man__yco+3+p][MANDO._Man__xco] in [" ", coin]):
-    #             MANDO.disappear(ARR)
-    #             MANDO._Man__yco = MANDO._Man__yco + p
-    #             MANDO.appear(ARR)
-
-    #         E.bossdisappear(ARR)
-    #         if(e._Man__yco+12<27 and ARR[MANDO._Man__yco+p+3][MANDO._Man__xco+2] == ground and ARR[MANDO._Man__yco+3+p][MANDO._Man__xco+1] == ground and ARR[MANDO._Man__yco+3+p][MANDO._Man__xco] == ground):
-    #             e._Man__yco += 1
-    #         E.bossappear(ARR)
-
-    if MANDO.get_a() > 389:
+    if MANDO.get_y() + 4 != ground:
         MANDO.disappear(ARR)
-        E.bossdisappear(ARR)
-        if MANDO.get_y() + 4 < 28:
-            if(MANDO.get_a() > 389 and E.get_y() + 12 < 27):
-                E.set_y(1) #= e._Man__yco + 1
-            MANDO.set_y(1) #= MANDO._Man__yco + 1
-            MANDO.collisioncheck(ARR, 3, MANDO.get_a())
+        if MANDO.get_y()+ 4 + MANDO._gr < 27:
+            MANDO.set_y(MANDO._gr)
+        else:
+            MANDO.set_y(24-MANDO.get_y())
         MANDO.appear(ARR)
-        E.bossappear(ARR)
-    else:
-        if(MANDO.get_y() > 14 and MANDO.get_y() < 24):
-            MANDO.disappear(ARR)
-            MANDO.set_y(1) #= MANDO._Man__yco + 1
-            MANDO.coincheck(ARR, 3)
-            MANDO.collisioncheck(ARR, 3, MANDO.get_a())
-            MANDO.appear(ARR)
-        elif(MANDO.get_y() > 7 and MANDO.get_y() < 15):
-            l_val = MANDO.get_life()
-            # MANDO.disappear(ARR)
-            for i in range(2):
-                MANDO.disappear(ARR)
-                MANDO.set_y(1) #= MANDO._Man__yco + 1
-                MANDO.coincheck(ARR, 3)
-                MANDO.collisioncheck(ARR, 3, MANDO.get_a())
-                MANDO.appear(ARR)
-            if l_val != MANDO.get_life():
-                MANDO.set_life(l_val - 1)
-        elif(MANDO.get_y() > -2 and MANDO.get_y() < 8):
-            l_val = MANDO.get_life()
-            for i in range(3):
-                MANDO.disappear(ARR)
-                MANDO.set_y(1) #= MANDO._Man__yco + 1
-                MANDO.coincheck(ARR, 3)
-                MANDO.collisioncheck(ARR, 3, MANDO.get_a())
-                MANDO.appear(ARR)
-            if l_val != MANDO.get_life():
-                MANDO.set_life(l_val - 1)
+        MANDO.coincheck(ARR,3)
+        MANDO.collisioncheck(ARR,3,MANDO.get_a())
+    MANDO._gr += 1
 
     MANDO.movebullets(ARR)
     if(MANDO.get_a() > 389 and MANDO.get_a()%8 == 0):
@@ -306,5 +215,5 @@ while True:
         print("SCORE:", MANDO.set_score(1), end='\n')
         print("ENEMY LIVES:", E.get_life(), end='\t \t')
         print("TIME REMAINING:", T)
-        print("You Loose")
+        print("You LOst")
         quit()

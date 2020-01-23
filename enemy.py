@@ -5,7 +5,6 @@ from mandalorian import Man
 class BossEnemy(Man):
     '''Class for Boss Enemy'''
     def __init__(self, xco, yco):
-       # '''Initialises values'''
         Man.__init__(self, xco, yco)
         self._life = 30
         self.__boss = []
@@ -48,14 +47,12 @@ class BossEnemy(Man):
 
     def bossdisappear(self, grid):
         '''Function to clear Boss'''
-        # grid[0][475]=0
         for i in range(self._Man__yco, self._Man__yco + 13):
             for j in range(self._Man__xco, self._Man__xco + 41):
                 grid[i][j] = " "
 
     def bossappear(self, grid):
         '''Function to print Boss'''
-        # grid[0][476]=0
         for i in range(self._Man__yco, self._Man__yco + 13):
             for j in range(self._Man__xco, self._Man__xco + 41):
                 grid[i][j] = self.__boss[i-self._Man__yco][j-self._Man__xco]
@@ -68,9 +65,7 @@ class BossEnemy(Man):
 
     def movebullets(self, grid, life, w_val):
         '''Function to move bullets'''
-        # grid[0][476]=len(self.__list2)
         for x in range(0, len(self.__list2)):
-            # grid[0][470] = self.__list2[x]
             if self.__list2[x]-1 > 387:
                 grid[self.__list1[x]][self.__list2[x]] = " "
                 if grid[self.__list1[x]][self.__list2[x]-1] in ["@", "O", "^", Fore.GREEN + "@" + Style.RESET_ALL, Fore.GREEN + "O" + Style.RESET_ALL, Fore.GREEN + "^" + Style.RESET_ALL]:
